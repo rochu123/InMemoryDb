@@ -90,24 +90,18 @@ public class InMemoryKeyValueStore {
     }
 
     private Object convertToDataType(String value) {
-        // Try to convert the value to the appropriate data type
         if (value.matches("\\d+")) {
-            // Integer
             return Integer.parseInt(value);
         } else if (value.matches("\\d+\\.\\d+")) {
-            // Double
             return Double.parseDouble(value);
         } else if (value.equalsIgnoreCase("true") || value.equalsIgnoreCase("false")) {
-            // Boolean
             return Boolean.parseBoolean(value);
         } else {
-            // String
             return value;
         }
     }
 
     private Class getDataType(String value) {
-        // Return the data type of the given value
         if (value.matches("\\d+")) {
             return Integer.class;
         } else if (value.matches("\\d+\\.\\d+")) {
